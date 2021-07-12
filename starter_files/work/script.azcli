@@ -1,0 +1,113 @@
+
+#!/bin/bash
+
+# Variables
+resourceGroup="acdnd-c4-project"
+#location="westus2"
+location="japaneast"
+osType="UbuntuLTS"
+vmssName="udacity-vmss"
+adminName="udacityadmin"
+storageAccount="udacitydiag$RANDOM"
+bePoolName="$vmssName-bepool"
+lbName="$vmssName-lb"
+lbRule="$lbName-network-rule"
+nsgName="$vmssName-nsg"
+vnetName="$vmssName-vnet"
+subnetName="$vnetName-subnet"
+probeName="tcpProbe"
+vmSize="Standard_B1ls"
+storageType="Standard_LRS"
+# My Variablle
+logAnalyticsWorksapce="acdnd-c4-logAnalyticsWorksapce"
+
+
+az deployment group create --resource-group $resourceGroup= --name $logAnalyticsWorksapce --template-file deploylaworkspacetemplate.json
+
+az cloud set --name AzureCloud --profile "latest"
+az account show
+
+
+az ad sp create-for-rbac --sdk-auth --name udacityc4
+# In a future release, this command will NOT create a 'Contributor' role assignment by default. If needed, use the --role argument to explicitly create a role assignment.
+# Creating 'Contributor' role assignment under scope '/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18'
+# The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli
+# 'name' property in the output is deprecated and will be removed in the future. Use 'appId' instead.
+# {
+#   "clientId": "8bba7746-d5f3-4115-a078-8bba50ec10cb",
+#   "clientSecret": "66JMw.bA-TulYo~5qMMbduWa485icG4qJg",
+#   "subscriptionId": "653662f1-95de-4498-b876-1fd625bf5d18",
+#   "tenantId": "60e63508-9cfd-4013-9a1f-7610707b07ce",
+#   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+#   "resourceManagerEndpointUrl": "https://management.azure.com/",
+#   "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+#   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+#   "galleryEndpointUrl": "https://gallery.azure.com/",
+#   "managementEndpointUrl": "https://management.core.windows.net/"
+# }
+
+# Get object ID out of this command
+az ad sp show --id 8bba7746-d5f3-4115-a078-8bba50ec10cb
+# {
+#   "accountEnabled": "True",
+#   "addIns": [],
+#   "alternativeNames": [],
+#   "appDisplayName": "udacityc4",
+#   "appId": "8bba7746-d5f3-4115-a078-8bba50ec10cb",
+#   "appOwnerTenantId": "60e63508-9cfd-4013-9a1f-7610707b07ce",
+#....
+#  "objectId": "e77877fe-66bc-4372-b353-bbdd5aa4766a",
+#  "objectType": "ServicePrincipal",
+#....
+
+az ml workspace show -w udacitypgml -g udacityPlayGroundRG
+# Command group 'ml workspace' is experimental and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+# {
+#   "application_insights": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.insights/components/udacitypgml2211715831",
+#   "container_registry": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.containerregistry/registries/udacitypgcr",
+#   "description": "",
+#   "discovery_url": "https://japaneast.api.azureml.ms/discovery",
+#   "friendly_name": "UdacityPGML",
+#   "hbi_workspace": false,
+#   "key_vault": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.keyvault/vaults/udacitypgml1399777891",
+#   "location": "japaneast",
+#   "name": "UdacityPGML",
+#   "storage_account": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.storage/storageaccounts/udacitypgml9141560485",
+#   "tags": {}
+# }
+az ml workspace share -w udacitypgml -g udacityPlayGroundRG --user e77877fe-66bc-4372-b353-bbdd5aa4766a --role owner
+az ml workspace show -w udacitypgml -g udacityPlayGroundRG
+{
+  "allowPublicAccessWhenBehindVnet": false,
+  "applicationInsights": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.insights/components/udacitypgml2211715831",
+  "containerRegistry": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.containerregistry/registries/udacitypgcr",
+  "creationTime": "2021-06-29T20:46:00.8318910+00:00",
+  "description": "",
+  "discoveryUrl": "https://japaneast.api.azureml.ms/discovery",
+  "friendlyName": "UdacityPGML",
+  "hbiWorkspace": false,
+  "id": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourceGroups/udacityPlayGroundRG/providers/Microsoft.MachineLearningServices/workspaces/UdacityPGML",
+  "identity": {
+    "principal_id": "8658e2b7-03f4-475c-8279-7b6e39950331",
+    "tenant_id": "60e63508-9cfd-4013-9a1f-7610707b07ce",
+    "type": "SystemAssigned"
+  },
+  "imageBuildCompute": "",
+  "keyVault": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.keyvault/vaults/udacitypgml1399777891",
+  "location": "japaneast",
+  "name": "UdacityPGML",
+  "notebookInfo": {
+    "fqdn": "ml-udacitypgml-japaneast-816316e8-6c15-4697-abd3-05a368b6ad2c.notebooks.azure.net",
+    "resource_id": "f8206ddd9b9842ca9ca52fee8e1a9df7"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "udacityPlayGroundRG",
+  "sdkTelemetryAppInsightsKey": "eb8e36a7-407f-4ba3-89c9-9f15d8025e17",
+  "sku": "Basic",
+  "storageAccount": "/subscriptions/653662f1-95de-4498-b876-1fd625bf5d18/resourcegroups/udacityplaygroundrg/providers/microsoft.storage/storageaccounts/udacitypgml9141560485",
+  "tags": {},
+  "type": "Microsoft.MachineLearningServices/workspaces",
+  "workspaceid": "816316e8-6c15-4697-abd3-05a368b6ad2c"
+}
+
+419  az ml endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml --resource-group udacityPlyaGroundRG --workspace-name udacitypgml
