@@ -6,7 +6,6 @@ import json
 scoring_uri = 'http://d8e9f6ad-4112-4417-97c0-01b4246b284a.japaneast.azurecontainer.io/score'
 # If the service is authenticated, set the key or token
 key = str(open('./starter_files/key.txt', 'r').readline().split(':')[1])
-#key ='sYDHOfPPfLTb0w5gDucnNQfT8VinfhBf'
 
 # Two sets of data to score, so we get two results back
 data = {"data":
@@ -69,6 +68,10 @@ headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
 resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.request.url)
+print(resp.request.headers)
+print(resp.request.body)
+print(resp.reason)
 print(resp.json())
 
 
