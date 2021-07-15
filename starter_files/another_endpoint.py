@@ -10,8 +10,6 @@ def allowSelfSignedHttps(allowed):
 
 allowSelfSignedHttps(True) # this line is needed if you use self-signed certificate in your scoring service.
 
-# Request data goes here
-
 data = {"data":
         [
           {
@@ -39,11 +37,10 @@ data = {"data":
       ]
     }
 
-
 body = str.encode(json.dumps(data))
 
-url = 'http://d8e9f6ad-4112-4417-97c0-01b4246b284a.japaneast.azurecontainer.io/score'
-api_key = 'sYDHOfPPfLTb0w5gDucnNQfT8VinfhBf' # Replace this with the API key for the web service
+url = 'http://5ed8e1ca-f15e-4b8f-93e3-507ee07d1857.japaneast.azurecontainer.io/score'
+api_key = 'BPP6Wdit4cy2Nx7RYAPFjNcWBgUU63Ai' # Replace this with the API key for the web service
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
 req = urllib.request.Request(url, body, headers)
@@ -59,3 +56,5 @@ except urllib.error.HTTPError as error:
     # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
     print(error.info())
     print(json.loads(error.read().decode("utf8", 'ignore')))
+
+
