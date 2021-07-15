@@ -1,69 +1,71 @@
 <mxfile>
     <diagram id="FcnYCMbB4kOYN2o_jrPs" name="Page-1">
-        <mxGraphModel dx="711" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="594" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="4">
+                <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3" target="12">
+                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Register Dataset&lt;br&gt;in&lt;br&gt;Azure ML Studio" style="html=1;" vertex="1" parent="1">
+                <mxCell id="3" value="Register Dataset&lt;br&gt;in&lt;br&gt;Azure ML Studio" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="40" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="6">
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="4" target="6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="Automated ML&lt;br&gt;Experiment to&lt;br&gt;Create Models" style="html=1;" vertex="1" parent="1">
+                <mxCell id="4" value="Automated ML&lt;br&gt;Experiment to&lt;br&gt;Create Models" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="120" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="10">
+                <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Deploy &lt;br&gt;the Best Perfoming&lt;br&gt;Moel&amp;nbsp;" style="html=1;" vertex="1" parent="1">
+                <mxCell id="5" value="Deploy &lt;br&gt;the Best Perfoming&lt;br&gt;Moel&amp;nbsp;" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="280" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6" target="5">
+                <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="6" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.569;entryY=0.02;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="6" target="9">
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.569;entryY=0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6" target="8">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="5" target="8" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="290" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="6" value="Run Experiment&lt;br&gt;to Gen Classification &lt;br&gt;Models" style="html=1;" vertex="1" parent="1">
+                <mxCell id="6" value="Run Experiment&lt;br&gt;to Gen Classification &lt;br&gt;Models" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="200" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="10">
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="8" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="Enable Logging&lt;br&gt;&amp;amp; Application Insights" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="200" y="280" width="110" height="50" as="geometry"/>
+                <mxCell id="8" value="Enable Logging&lt;br&gt;&amp;amp; Application Insights" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="340" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="9">
+                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="9" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="150" y="390" as="targetPoint"/>
+                        <mxPoint x="150" y="434" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="415" y="390"/>
+                            <mxPoint x="415" y="434"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="9" value="Lauhch API test&lt;br&gt;with SWAGGER" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="360" y="280" width="110" height="50" as="geometry"/>
+                <mxCell id="9" value="Lauhch API test&lt;br&gt;with SWAGGER" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="340" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="11">
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="10" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="Consume Deployed &lt;br&gt;Model Endpoint" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="363.5" width="110" height="50" as="geometry"/>
+                <mxCell id="10" value="Consume Deployed &lt;br&gt;Model Endpoint" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="407.5" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="Benchmark &lt;br&gt;Model Endpoint&lt;br&gt;Performance" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="440" width="110" height="50" as="geometry"/>
+                <mxCell id="11" value="Benchmark &lt;br&gt;Model Endpoint&lt;br&gt;Performance" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="484" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="Create, Publish, Consume&lt;br&gt;Pipepine&lt;br&gt;in Jupyter Notebook" style="html=1;" vertex="1" parent="1">
+                <mxCell id="12" value="Create, Publish, Consume&lt;br&gt;Pipepine&lt;br&gt;in Jupyter Notebook" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="460" y="440" width="150" height="50" as="geometry"/>
                 </mxCell>
             </root>

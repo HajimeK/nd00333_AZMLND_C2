@@ -2,12 +2,20 @@
 
 ## An overview of the project
 
-In this project, working with the Bank Marketing dataset. By using Azure
-- configure a cloud-based machine learning production model
-- deploy the best performing model
-- consume the model
-Also
-- create, publish, and consume a pipeline with a Jupyter Notebook
+
+In this project by using Azure Machine Learing Studio
+- configure a cloud-based machine learning in Automated ML (Machione Learning)
+- deploy the best performing model generated with Automated ML
+- consume the deployed model
+- Enable the loggin to monitor the the operation
+- Using Apache Benchmark tool to measure perfomance when consuming the deployed model
+Also using Python SDK in Jupyter Notebook to 
+- automate Machine Learning as MLOps by creating, publishing, and consuming a pipeline
+
+We work with the Bank Marketing dataset.
+The Bank Marketing dataset contains information about a bank marketing campaign.
+The objective field indicates if a customer subscribed to a fixed-term deposit or not.
+We run inferense with REST calls by consuming the deployed model stated above.
 
 ## An Architectural Diagram
 
@@ -17,9 +25,20 @@ Also
 
 ## Screen Recording
 
-https://youtu.be/jmRlyRRxztY
+As the movie cannot be combined in my env,
+please go through the following 3 videos in the order.
 
+Operations in Azure ML Studio
+https://youtu.be/jmRlyRRxztY
+Python code
+https://youtu.be/4yG-T66apco
+Execution of the Python code
+https://youtu.be/CtSpOLKu9BM
 ## how to improve the project in the future
+
+The model performance wise, we can consider about 2 options for improvement
+- Feature engineering the dataset
+- Run deep learning models learning for more accuracy
 
 To fully operate with MLOps appraoch, we should create a monitoring app to monitor the classification discrepancy.
 Using that, trigger service bus or others to trigger AutoML process piplines to update the model and publish the model to the end points.
