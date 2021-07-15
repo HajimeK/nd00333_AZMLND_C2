@@ -2,24 +2,27 @@
 
 ## An overview of the project
 
+In this project, working with the Bank Marketing dataset. By using Azure
+- configure a cloud-based machine learning production model
+- deploy the best performing model
+- consume the model
+Also
+- create, publish, and consume a pipeline with a Jupyter Notebook
+
 ## An Architectural Diagram
 
-
 ## Architectural Diagram
-*TODO*: Provide an architectual diagram of the project and give an introduction of each step. An architectural diagram is an image that helps visualize the flow of operations from start to finish. In this case, it has to be related to the completed project, with its various stages that are critical to the overall flow. For example, one stage for managing models could be "using Automated ML to determine the best model". 
 
-## Key Steps
-*TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps. 
+![](work/architecture.svg)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+<a http="https://youtu.be/jmRlyRRxztY">Screen Recording in YouTube</a>
 
+## how to improve the project in the future
 
-## A short description of how to improve the project in the future
-
+To fully operate with MLOps appraoch, we should create a monitoring app to monitor the classification discrepancy.
+Using that, trigger service bus or others to trigger AutoML process piplines to update the model and publish the model to the end points.
 
 ## Screenshots required with a short description to demonstrate key steps
 
@@ -42,6 +45,18 @@ The screencast shows the entire process of the working ML application, including
 
 ## Screenshots for Deploy model in Azure ML Studio
 
+### Service principle and workspace
+
+service principle created
+
+![](work/Inked2021-07-11-00-02-56_LI.jpg)
+
+![](work/Inked2021-07-11-00-03-32_LI.jpg)
+
+
+az ml workspace share worked
+![](work/Inked2021-07-11-00-00-29_LI.jpg)
+
 ### Create a new AutoML run
 
 #### “Registered Datasets” in ML Studio shows "Bankmarketing" dataset available
@@ -62,13 +77,109 @@ The screencast shows the entire process of the working ML application, including
 App Insights is enabled
 ![](work/2021-07-12-01-37-47.png)
 
-#### Logging is enabled by running the provided logs.py script
-
 
 Actually corrected requests as below in the Azure porta.
 ![](work/2021-07-12-01-38-49.png)
 
 ![](work/2021-07-12-02-00-29.png)
+
+#### Logging is enabled by running the provided logs.py script
+
+![](work/2021-07-16-00-17-36.png)
+
+```
+$ python logs.py
+Failure while loading azureml_run_type_providers. Failed to load entrypoint hyperdrive = azureml.train.hyperdrive:HyperDriveRun._from_run_dto with exception (cryptography 2.8 (/usr/lib/python3/dist-packages), Requirement.parse('cryptography>=3.2'), {'pyopenssl'}).
+Failure while loading azureml_run_type_providers. Failed to load entrypoint automl = azureml.train.automl.run:AutoMLRun._from_run_dto with exception (cryptography 2.8 (/usr/lib/python3/dist-packages), Requirement.parse('cryptography>=3.2'), {'pyopenssl'}).
+Failure while loading azureml_run_type_providers. Failed to load entrypoint azureml.PipelineRun = azureml.pipeline.core.run:PipelineRun._from_dto with exception (cryptography 2.8 (/usr/lib/python3/dist-packages), Requirement.parse('cryptography>=3.2'), {'pyopenssl'}).
+Failure while loading azureml_run_type_providers. Failed to load entrypoint azureml.ReusedStepRun = azureml.pipeline.core.run:StepRun._from_reused_dto with exception (cryptography 2.8 (/usr/lib/python3/dist-packages), Requirement.parse('cryptography>=3.2'), {'pyopenssl'}).
+Failure while loading azureml_run_type_providers. Failed to load entrypoint azureml.StepRun = azureml.pipeline.core.run:StepRun._from_dto with exception (cryptography 2.8 (/usr/lib/python3/dist-packages), Requirement.parse('cryptography>=3.2'), {'pyopenssl'}).
+Failure while loading azureml_run_type_providers. Failed to load entrypoint azureml.scriptrun = azureml.core.script_run:ScriptRun._from_run_dto with exception (cryptography 2.8 (/usr/lib/python3/dist-packages), Requirement.parse('cryptography>=3.2'), {'pyopenssl'}).
+Warning: Falling back to use azure cli login credentials.
+If you run your code in unattended mode, i.e., where you can't give a user input, then we recommend to use ServicePrincipalAuthentication or MsiAuthentication.
+Please refer to aka.ms/aml-notebook-auth for different authentication mechanisms in azureml-sdk.
+2021-07-12T08:33:26,670768400+00:00 - iot-server/run 
+2021-07-12T08:33:26,689795800+00:00 - rsyslog/run 
+2021-07-12T08:33:26,696474200+00:00 - gunicorn/run 
+2021-07-12T08:33:26,832383400+00:00 - nginx/run 
+/usr/sbin/nginx: /azureml-envs/azureml_429e58b1641c78c2352efc8ad21c49d9/lib/libcrypto.so.1.0.0: no version information available (required by /usr/sbin/nginx)
+/usr/sbin/nginx: /azureml-envs/azureml_429e58b1641c78c2352efc8ad21c49d9/lib/libcrypto.so.1.0.0: no version information available (required by /usr/sbin/nginx)
+/usr/sbin/nginx: /azureml-envs/azureml_429e58b1641c78c2352efc8ad21c49d9/lib/libssl.so.1.0.0: no version information available (required by /usr/sbin/nginx)
+/usr/sbin/nginx: /azureml-envs/azureml_429e58b1641c78c2352efc8ad21c49d9/lib/libssl.so.1.0.0: no version information available (required by /usr/sbin/nginx)
+/usr/sbin/nginx: /azureml-envs/azureml_429e58b1641c78c2352efc8ad21c49d9/lib/libssl.so.1.0.0: no version information available (required by /usr/sbin/nginx)
+rsyslogd: /azureml-envs/azureml_429e58b1641c78c2352efc8ad21c49d9/lib/libuuid.so.1: no version information available (required by rsyslogd)
+Starting gunicorn 20.1.0
+Listening at: http://127.0.0.1:31311 (60)
+Using worker: sync
+worker timeout is set to 300
+Booting worker with pid: 88
+EdgeHubConnectionString and IOTEDGE_IOTHUBHOSTNAME are not set. Exiting...
+2021-07-12T08:33:27,880060000+00:00 - iot-server/finish 1 0
+2021-07-12T08:33:27,882374300+00:00 - Exit code 1 is normal. Not restarting iot-server.
+SPARK_HOME not set. Skipping PySpark Initialization.
+Generating new fontManager, this may take some time...
+Initializing logger
+2021-07-12 08:33:30,192 | root | INFO | Starting up app insights client
+2021-07-12 08:33:30,193 | root | INFO | Starting up request id generator
+2021-07-12 08:33:30,193 | root | INFO | Starting up app insight hooks
+
+```
+
+```
+127.0.0.1 - - [15/Jul/2021:03:49:12 +0000] "GET /?a=fetch&content=%3Cphp%3Edie%28%40md5%28HelloThinkCMF%29%29%3C%2Fphp%3E HTTP/1.0" 200 7 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
+2021-07-15 11:02:57,464 | root | INFO | Validation Request Content-Type
+2021-07-15 11:02:57,466 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:02:57,563 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:02:57 +0000] "POST /score HTTP/1.0" 200 33 "-" "vscode-restclient"
+2021-07-15 11:26:11,236 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:11,238 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:11,365 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:11 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:11,405 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:11,406 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:11,590 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:11 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:11,639 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:11,640 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:11,790 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:11 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:11,839 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:11,840 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:12,009 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:12 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:12,050 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:12,051 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:12,227 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:12 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:12,259 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:12,261 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:12,400 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:12 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:12,434 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:12,435 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:12,561 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:12 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:12,604 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:12,605 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:12,738 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:12 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:12,770 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:12,771 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:12,906 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:12 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 11:26:12,940 | root | INFO | Validation Request Content-Type
+2021-07-15 11:26:12,941 | root | INFO | Scoring Timer is set to 60.0 seconds
+2021-07-15 11:26:13,085 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:11:26:13 +0000] "POST /score HTTP/1.0" 200 33 "-" "ApacheBench/2.3"
+2021-07-15 15:07:51,342 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:15:07:51 +0000] "GET /swagger.json HTTP/1.0" 200 3517 "-" "Go-http-client/1.1"
+2021-07-15 15:08:00,056 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:15:08:00 +0000] "GET /swagger.json HTTP/1.0" 200 3517 "-" "Go-http-client/1.1"
+2021-07-15 15:10:25,233 | root | INFO | 200
+127.0.0.1 - - [15/Jul/2021:15:10:25 +0000] "GET /swagger.json HTTP/1.0" 200 3517 "-" "Go-http-client/1.1"
+
+```
+
 
 #### Swagger runs on localhost showing the HTTP API methods and responses for the model
 
